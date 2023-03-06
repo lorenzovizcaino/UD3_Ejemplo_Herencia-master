@@ -1,8 +1,11 @@
 package herencia.perClass;
 
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
+import java.util.List;
 
 
 public class TestPerClass {
@@ -25,13 +28,33 @@ session = sessionFactory.openSession();
 		
 		tx = session.beginTransaction();
     	addEmployees();
+		mostrarEmpleados();
     	
 	tx.commit();
 		
 		session.close();
     }
 
-	
+	private static void mostrarEmpleados() {
+		//	¿¿Requiere lanzar consultas sobre cada tabla??.
+		List<Employee> listaEmployee=session.createQuery("Select e from Employee e").list();
+		for (Employee e:listaEmployee) {
+			System.out.println(e);
+		}
+
+//		List<Technician> listaTecnician=session.createQuery("Select t from Technician t").list();
+//		for (Technician e:listaTecnician) {
+//			System.out.println(e);
+//		}
+//
+//		List<Externo> listaExterno=session.createQuery("Select x from Externo x").list();
+//		for (Externo e:listaExterno) {
+//			System.out.println(e);
+//		}
+
+	}
+
+
 	public static void addEmployees() {
 		
 		System.out.println("\n\n*** addEmployee ***\n");
@@ -60,6 +83,14 @@ session = sessionFactory.openSession();
 			developer.setExpertLanguajes("Java");
 			session.save(developer);
 			System.out.println("La clave del nuevo objeto es: " + developer.getId());
+
+			Externo externo = new Externo();
+			externo.setName("Yo soy Externo");
+			externo.setEmpresa("IBM");
+
+
+			session.save(externo);
+			System.out.println("La clave del nuevo objeto es: " + externo.getId());
 		
 		} catch (Exception e) {
 			System.out.println(e);

@@ -1,4 +1,6 @@
-package herencia.mappedSuperclass;
+package herencia.perClass;
+
+
 
 import javax.persistence.Entity;
 
@@ -17,8 +19,6 @@ public class Externo extends Employee {
 
 	@Override
 	public String toString() {
-		return "Externo{" +
-				"empresa='" + empresa + '\'' +
-				"} ";
+		return "Externo { externoId=" + id+", empresa="+empresa+"} ";
 	}
 }
