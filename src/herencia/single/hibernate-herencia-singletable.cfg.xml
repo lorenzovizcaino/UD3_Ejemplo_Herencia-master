@@ -22,6 +22,6 @@
         <mapping class="herencia.single.Developer" />
         <mapping class="herencia.single.Employee" />  
         <mapping class="herencia.single.Technician" />
-        
+        <mapping class="herencia.single.Externo" />
     </session-factory>
 </hibernate-configuration>

@@ -87,8 +87,6 @@ session = sessionFactory.openSession();
 			Externo externo = new Externo();
 			externo.setName("Yo soy Externo");
 			externo.setEmpresa("IBM");
-
-
 			session.save(externo);
 			System.out.println("La clave del nuevo objeto es: " + externo.getId());
 		

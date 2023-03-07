@@ -1,8 +1,11 @@
 package herencia.joined;
 
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
+import java.util.List;
 
 
 public class TestJoined {
@@ -25,13 +28,22 @@ session = sessionFactory.openSession();
 		
 		tx = session.beginTransaction();
     	addEmployees();
+		mostrarEmpleados();
     	
 	tx.commit();
 		
 		session.close();
     }
 
-	
+	private static void mostrarEmpleados() {
+		List<Employee> listaEmployee=session.createQuery("Select e.name, e.nif, e.phone, e.email, t.experienceYears " +
+				"FROM Employee e JOIN Technician t on e.id=t.employeeId").list();
+		for (Employee e:listaEmployee) {
+			System.out.println(e);
+		}
+	}
+
+
 	public static void addEmployees() {
 		
 		System.out.println("\n\n*** addEmployee ***\n");
@@ -60,6 +72,13 @@ session = sessionFactory.openSession();
 			developer.setExpertLanguajes("Java");
 			session.save(developer);
 			System.out.println("La clave del nuevo objeto es: " + developer.getId());
+
+			Externo externo = new Externo();
+			externo.setName("Yo soy Externo");
+			externo.setEmpresa("IBM");
+			externo.setName("Raul");
+			session.save(externo);
+			System.out.println("La clave del nuevo objeto es: " + externo.getId());
 		
 		} catch (Exception e) {
 			System.out.println(e);
