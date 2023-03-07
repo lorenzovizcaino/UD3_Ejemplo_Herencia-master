@@ -18,6 +18,7 @@
         <property name="hbm2ddl.auto">drop-and-create</property>
       
         <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
       
         <mapping class="herencia.perClass.Developer" />
         <mapping class="herencia.perClass.Employee" />  

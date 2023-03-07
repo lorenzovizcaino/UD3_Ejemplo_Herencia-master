@@ -20,6 +20,6 @@ public class Technician extends Employee {
 
 	@Override
 	public String toString() {
-		return "Technician { technicianId=" + id + ", experienceYears=" + experienceYears + " }";
+		return "Technician { technicianId=" + id + ", experienceYears=" + experienceYears + super.toString()+" }";
 	}
 }

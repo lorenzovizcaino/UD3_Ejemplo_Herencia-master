@@ -19,6 +19,6 @@ public class Developer extends Technician {
 
 	@Override
 	public String toString() {
-		return "Developer { developerId=" + id + ", expertLanguajes=" + expertLanguajes + " }";
+		return "Developer { developerId=" + id + ", expertLanguajes=" + expertLanguajes + super.toString()+" }";
 	}
 }

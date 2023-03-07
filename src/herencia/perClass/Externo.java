@@ -19,6 +19,6 @@ public class Externo extends Employee {
 
 	@Override
 	public String toString() {
-		return "Externo { externoId=" + id+", empresa="+empresa+"} ";
+		return "Externo { externoId=" + id+", empresa="+empresa+super.toString()+"} ";
 	}
 }

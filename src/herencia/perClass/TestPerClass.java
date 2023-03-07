@@ -37,7 +37,7 @@ session = sessionFactory.openSession();
 
 	private static void mostrarEmpleados() {
 		//	¿¿Requiere lanzar consultas sobre cada tabla??.
-		List<Employee> listaEmployee=session.createQuery("Select e from Employee e").list();
+		List<Employee> listaEmployee=session.createQuery("Select e from Employee e order by e.id").list();
 		for (Employee e:listaEmployee) {
 			System.out.println(e);
 		}

@@ -15,9 +15,10 @@
         <property name="hibernate.search.autoregister_listeners">true</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
 <!--         https://docs.jboss.org/hibernate/orm/6.2/userguide/html_single/Hibernate_User_Guide.html#configurations-hbmddl -->
-        <property name="hbm2ddl.auto">drop-and-create</property>
+        <property name="hbm2ddl.auto">update</property>
       
         <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
       
         <mapping class="herencia.joined.Developer" />
         <mapping class="herencia.joined.Employee" />  
